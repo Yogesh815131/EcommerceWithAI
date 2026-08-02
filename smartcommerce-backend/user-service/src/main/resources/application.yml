@@ -6,9 +6,9 @@ spring:
     name: user-service
 
   datasource:
-    url: jdbc:postgresql://localhost:5432/smartcommerce_users
-    username: postgres
-    password: postgres
+    url: jdbc:postgresql://ep-late-base-az4ls7i9-pooler.c-3.ap-southeast-1.aws.neon.tech/user-service?sslmode=require&channelBinding=require
+    username: neondb_owner
+    password: npg_WbFiBN4Q2hJK
     driver-class-name: org.postgresql.Driver
 
   jpa:
