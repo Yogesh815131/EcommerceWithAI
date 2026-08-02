@@ -15,7 +15,15 @@ spring:
           uri: lb://auth-service
           predicates:
             - Path=/api/auth/**
+        - id: user-service-vendors
+          uri: lb://user-service
+          predicates:
+            - Path=/api/vendors/**
 
+        - id: user-service-addresses
+          uri: lb://user-service
+          predicates:
+            - Path=/api/addresses/**
         # TODO: add routes as each service is built, e.g.
         # - id: user-service
         #   uri: lb://user-service

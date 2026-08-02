@@ -52,3 +52,6 @@ springdoc:
     path: /v3/api-docs
   swagger-ui:
     path: /swagger-ui.html
+
+internal:
+  api-key: ${INTERNAL_API_KEY:change-this-internal-shared-secret}
