@@ -24,16 +24,21 @@ spring:
           uri: lb://user-service
           predicates:
             - Path=/api/addresses/**
-        # TODO: add routes as each service is built, e.g.
-        # - id: user-service
-        #   uri: lb://user-service
-        #   predicates:
-        #     - Path=/api/users/**
-        #
-        # - id: product-service
-        #   uri: lb://product-service
-        #   predicates:
-        #     - Path=/api/products/**
+
+        - id: product-service-products
+          uri: lb://product-service
+          predicates:
+            - Path=/api/products/**
+
+        - id: product-service-categories
+          uri: lb://product-service
+          predicates:
+            - Path=/api/categories/**
+            
+        - id: cart-service
+          uri: lb://cart-service
+          predicates:
+            - Path=/api/cart/**
 
 eureka:
   client:

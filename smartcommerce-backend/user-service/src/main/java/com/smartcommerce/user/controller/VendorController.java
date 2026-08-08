@@ -66,6 +66,19 @@ public class VendorController {
         Vendor rejected = vendorService.reject(vendorId, user.getUserId(), request.getReason());
         return ResponseEntity.ok(VendorResponse.from(rejected));
     }
+    
+    /**
+     * Returns the calling user's own vendor record and its status.
+     * Used by the Vendor Dashboard, and also called directly by
+     * product-service to resolve vendorId + verify ACTIVE status before
+     * allowing product management.
+     */
+    @GetMapping("/me")
+    public ResponseEntity<VendorResponse> getMyVendorProfile(HttpServletRequest httpRequest) {
+        CurrentUser user = currentUserResolver.resolve(httpRequest);
+        Vendor vendor = vendorService.getByUserId(user.getUserId());
+        return ResponseEntity.ok(VendorResponse.from(vendor));
+    }
 
     private void requireAdmin(CurrentUser user) {
         if (!user.isAdmin()) {

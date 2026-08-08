@@ -81,6 +81,12 @@ public class VendorService {
         vendor.setReviewedAt(Instant.now());
         return vendorRepository.save(vendor);
     }
+    
+    /** Used by GET /api/vendors/me, and by product-service's cross-service vendor lookup. */
+    public Vendor getByUserId(Long userId) {
+        return vendorRepository.findByUserId(userId)
+                .orElseThrow(() -> new IllegalArgumentException("No vendor application found for this account"));
+    }
 
     /**
      * Calls auth-service's internal role-grant endpoint directly (service-
