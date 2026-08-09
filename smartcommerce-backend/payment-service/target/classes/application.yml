@@ -1,0 +1,42 @@
+server:
+  port: 8086
+
+spring:
+  application:
+    name: payment-service
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/smartcommerce_payments
+    username: postgres
+    password: postgres
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    show-sql: true
+
+  flyway:
+    enabled: true
+    locations: classpath:db/migration
+    baseline-on-migrate: true
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    prefer-ip-address: true
+
+# NEVER put a real key here. Set the STRIPE_SECRET_KEY environment
+# variable before starting this service. Use a TEST mode key
+# (starts with sk_test_) while developing — get one free at
+# https://dashboard.stripe.com/test/apikeys
+stripe:
+  secret-key: ${STRIPE_SECRET_KEY:sk_test_replace_me}
+
+springdoc:
+  api-docs:
+    path: /v3/api-docs
+  swagger-ui:
+    path: /swagger-ui.html

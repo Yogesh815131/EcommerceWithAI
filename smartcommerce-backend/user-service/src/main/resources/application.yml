@@ -28,11 +28,8 @@ eureka:
   instance:
     prefer-ip-address: true
 
-# Shared secret for service-to-service calls that bypass the Gateway
-# (e.g. this service calling auth-service directly to grant a role).
-# MUST match the same value configured in auth-service.
 internal:
-  api-key: ${INTERNAL_API_KEY:change-this-internal-shared-secret}
+  api-key: Internal5J0twCinb5TLXqsegv52zp6v5NyoXKTJ1WDna74yR7UxYqXQNS6OGlH4m1dpCLAO1KuclXxgnhaZ7NcEmTHDBURtMFazSwHHkD0gbc8fwAALUp5c3GfvB2f1hbMY5Sor
 
 springdoc:
   api-docs:

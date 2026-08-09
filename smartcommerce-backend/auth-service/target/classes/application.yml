@@ -54,4 +54,4 @@ springdoc:
     path: /swagger-ui.html
 
 internal:
-  api-key: ${INTERNAL_API_KEY:change-this-internal-shared-secret}
+  api-key: Internal5J0twCinb5TLXqsegv52zp6v5NyoXKTJ1WDna74yR7UxYqXQNS6OGlH4m1dpCLAO1KuclXxgnhaZ7NcEmTHDBURtMFazSwHHkD0gbc8fwAALUp5c3GfvB2f1hbMY5Sor

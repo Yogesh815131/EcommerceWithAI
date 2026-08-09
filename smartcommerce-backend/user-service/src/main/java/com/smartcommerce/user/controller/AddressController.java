@@ -50,4 +50,11 @@ public class AddressController {
         addressService.delete(addressId, user.getUserId());
         return ResponseEntity.noContent().build();
     }
+    
+    @GetMapping("/{addressId}")
+    public ResponseEntity<Address> getById(@PathVariable Long addressId, HttpServletRequest httpRequest) {
+        CurrentUser user = currentUserResolver.resolve(httpRequest);
+        Address address = addressService.getByIdAndUserId(addressId, user.getUserId());
+        return ResponseEntity.ok(address);
+    }
 }

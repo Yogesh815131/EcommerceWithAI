@@ -47,7 +47,7 @@ public class VendorController {
 
     /** Admin-only: approve a pending application (grants ROLE_VENDOR via auth-service). */
     @PatchMapping("/{vendorId}/approve")
-    public ResponseEntity<VendorResponse> approve(@PathVariable Long vendorId, HttpServletRequest httpRequest) {
+    public ResponseEntity<VendorResponse> approve(@PathVariable("vendorId") Long vendorId, HttpServletRequest httpRequest) {
         CurrentUser user = currentUserResolver.resolve(httpRequest);
         requireAdmin(user);
 

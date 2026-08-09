@@ -52,4 +52,9 @@ public class AddressService {
                 .orElseThrow(() -> new IllegalArgumentException("Address not found"));
         addressRepository.delete(address);
     }
+    
+    public Address getByIdAndUserId(Long addressId, Long userId) {
+        return addressRepository.findByIdAndUserId(addressId, userId)
+                .orElseThrow(() -> new IllegalArgumentException("Address not found"));
+    }
 }
