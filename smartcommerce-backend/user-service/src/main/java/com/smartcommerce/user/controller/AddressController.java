@@ -36,7 +36,7 @@ public class AddressController {
     }
 
     @PutMapping("/{addressId}")
-    public ResponseEntity<Address> update(@PathVariable Long addressId,
+    public ResponseEntity<Address> update(@PathVariable("addressId") Long addressId,
                                            @Valid @RequestBody AddressRequest request,
                                            HttpServletRequest httpRequest) {
         CurrentUser user = currentUserResolver.resolve(httpRequest);

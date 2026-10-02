@@ -7,9 +7,9 @@ spring:
 
   data:
     redis:
-      host: 16.16.121.11
+      host: localhost
       port: 6379
-      password: Yogesh@#12   # uncomment if your local Redis requires auth
+#      password: Yogesh@#12   # uncomment if your local Redis requires auth
 
 eureka:
   client:

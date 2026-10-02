@@ -22,9 +22,9 @@ public class InternalController {
     private String internalApiKey;
 
     @PatchMapping("/{userId}/roles/grant")
-    public ResponseEntity<Void> grantRole(@PathVariable Long userId,
-                                           @RequestParam String role,
-                                           @RequestHeader("X-Internal-Api-Key") String providedKey) {
+    public ResponseEntity<Void> grantRole(@PathVariable("userId") Long userId,
+            							  @RequestParam("role") String role,
+                                          @RequestHeader("X-Internal-Api-Key") String providedKey) {
         if (!internalApiKey.equals(providedKey)) {
             return ResponseEntity.status(HttpStatus.FORBIDDEN).build();
         }

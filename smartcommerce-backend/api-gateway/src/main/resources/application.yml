@@ -6,6 +6,20 @@ spring:
     name: api-gateway
   cloud:
     gateway:
+      globalcors:
+        cors-configurations:
+          '[/**]':
+            allowedOrigins:
+              - "http://localhost:5173"
+            allowedMethods:
+              - GET
+              - POST
+              - PUT
+              - PATCH
+              - DELETE
+              - OPTIONS
+            allowedHeaders: "*"
+            allowCredentials: true
       discovery:
         locator:
           enabled: true
@@ -58,4 +72,4 @@ eureka:
   instance:
     prefer-ip-address: true
 jwt:
-  secret: ${JWT_SECRET:change-this-to-a-long-random-secret-in-prod-min-256-bits}
+  secret: Internal5J0twCinb5TLXqsegv52zp6v5NyoXKTJ1WDna74yR7UxYqXQNS6OGlH4m1dpCLAO1KuclXxgnhaZ7NcEmTHDBURtMFazSwHHkD0gbc8fwAALUp5c3GfvB2f1hbMY5Sor

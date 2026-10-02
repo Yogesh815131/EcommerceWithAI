@@ -36,7 +36,7 @@ spring:
               - profile
 
 jwt:
-  secret: ${JWT_SECRET:change-this-to-a-long-random-secret-in-prod-min-256-bits}
+  secret: Internal5J0twCinb5TLXqsegv52zp6v5NyoXKTJ1WDna74yR7UxYqXQNS6OGlH4m1dpCLAO1KuclXxgnhaZ7NcEmTHDBURtMFazSwHHkD0gbc8fwAALUp5c3GfvB2f1hbMY5Sor
   expiration-ms: 3600000       # access token: 1 hour
   refresh-expiration-days: 30  # refresh token: 30 days
 

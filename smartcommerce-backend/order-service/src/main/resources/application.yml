@@ -6,9 +6,9 @@ spring:
     name: order-service
 
   datasource:
-    url: jdbc:postgresql://localhost:5432/smartcommerce_orders
-    username: postgres
-    password: postgres
+    url: jdbc:postgresql://ep-late-base-az4ls7i9-pooler.c-3.ap-southeast-1.aws.neon.tech/orderservicedb?sslmode=require&channelBinding=require
+    username: neondb_owner
+    password: npg_WbFiBN4Q2hJK
     driver-class-name: org.postgresql.Driver
 
   jpa:
@@ -31,7 +31,7 @@ eureka:
 # MUST match product-service's internal.api-key — used for the
 # decrement-stock / restore-stock calls during checkout and cancellation.
 internal:
-  api-key: ${INTERNAL_API_KEY:change-this-internal-shared-secret}
+  api-key: Internal5J0twCinb5TLXqsegv52zp6v5NyoXKTJ1WDna74yR7UxYqXQNS6OGlH4m1dpCLAO1KuclXxgnhaZ7NcEmTHDBURtMFazSwHHkD0gbc8fwAALUp5c3GfvB2f1hbMY5Sor
 
 springdoc:
   api-docs:

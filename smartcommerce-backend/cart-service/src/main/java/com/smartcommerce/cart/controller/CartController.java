@@ -35,7 +35,7 @@ public class CartController {
     }
 
     @PatchMapping("/items/{productId}")
-    public ResponseEntity<CartResponse> updateQuantity(@PathVariable Long productId,
+    public ResponseEntity<CartResponse> updateQuantity(@PathVariable("productId") Long productId,
                                                          @Valid @RequestBody UpdateQuantityRequest request,
                                                          HttpServletRequest httpRequest) {
         CurrentUser user = currentUserResolver.resolve(httpRequest);
@@ -44,7 +44,7 @@ public class CartController {
     }
 
     @DeleteMapping("/items/{productId}")
-    public ResponseEntity<CartResponse> removeItem(@PathVariable Long productId, HttpServletRequest httpRequest) {
+    public ResponseEntity<CartResponse> removeItem(@PathVariable("productId") Long productId, HttpServletRequest httpRequest) {
         CurrentUser user = currentUserResolver.resolve(httpRequest);
         CartResponse cart = cartService.removeItem(user.getUserId(), productId);
         return ResponseEntity.ok(cart);

@@ -1,14 +1,16 @@
 package com.smartcommerce.product.service;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.stereotype.Service;
+
 import com.smartcommerce.product.dto.ProductRequest;
 import com.smartcommerce.product.entity.Product;
 import com.smartcommerce.product.repository.CategoryRepository;
 import com.smartcommerce.product.repository.ProductRepository;
 import com.smartcommerce.product.security.CurrentUser;
+
 import lombok.RequiredArgsConstructor;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
-import org.springframework.stereotype.Service;
 
 @Service
 @RequiredArgsConstructor
@@ -17,6 +19,7 @@ public class ProductService {
     private final ProductRepository productRepository;
     private final CategoryRepository categoryRepository;
     private final VendorLookupService vendorLookupService;
+    private final StockAlertService stockAlertService;
 
     // ---- Public browsing ----
 
@@ -80,6 +83,7 @@ public class ProductService {
 
         return productRepository.save(product);
     }
+    
 
     public Product setStatus(CurrentUser user, Long productId, Product.ProductStatus status) {
         Product product = getOwnedProduct(user, productId);
@@ -108,4 +112,6 @@ public class ProductService {
 
         return product;
     }
+    
+   
 }

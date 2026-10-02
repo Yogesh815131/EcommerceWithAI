@@ -1,0 +1,166 @@
+@import "tailwindcss";
+
+@theme {
+  /* Color system */
+  --color-bg: #f7f7fa;
+  --color-surface: #ffffff;
+  --color-ink: #14151a;
+  --color-ink-muted: #6b7280;
+  --color-border: #e6e7eb;
+
+  --color-brand: #5b4fe0;
+  --color-brand-dim: #edeafc;
+  --color-brand-hover: #4c3fd6;
+
+  --color-accent: #f0a202;
+  --color-accent-dim: #fdf2da;
+
+  --color-success: #16a34a;
+
+  /* Type */
+  --font-display: "Space Grotesk", ui-sans-serif, sans-serif;
+  --font-body: "Inter", ui-sans-serif, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+
+  /* Radius */
+  --radius-card: 1rem;
+  --radius-pill: 999px;
+}
+
+@layer base {
+  body {
+    background-color: var(--color-bg);
+    color: var(--color-ink);
+    font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  ::selection {
+    background-color: var(--color-brand-dim);
+    color: var(--color-brand-hover);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-brand);
+    outline-offset: 2px;
+  }
+}
+
+@layer utilities {
+  .font-display {
+    font-family: var(--font-display);
+  }
+  .font-mono-price {
+    font-family: var(--font-mono);
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+/* Shimmer for skeleton loading */
+@keyframes shimmer {
+  0% {
+    background-position: -400px 0;
+  }
+  100% {
+    background-position: 400px 0;
+  }
+}
+
+.skeleton-shimmer {
+  background: linear-gradient(90deg, #ececf1 0%, #f6f6f9 50%, #ececf1 100%);
+  background-size: 800px 100%;
+  animation: shimmer 1.6s ease-in-out infinite;
+}
+
+/* Home page entrance + ambient motion */
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes hero-glow {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+    opacity: 0.35;
+  }
+  50% {
+    transform: translate3d(18px, -10px, 0) scale(1.12);
+    opacity: 0.55;
+  }
+}
+
+.animate-fade-up {
+  animation: fade-up 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.animate-fade-in {
+  animation: fade-in 0.45s ease-out both;
+}
+
+.animate-stagger {
+  animation: fade-up 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation-delay: calc(var(--stagger, 0) * 55ms);
+}
+
+.nav-bar {
+  position: relative;
+}
+
+.home-hero {
+  position: relative;
+  overflow: hidden;
+}
+
+.home-hero::before,
+.home-hero::after {
+  content: "";
+  position: absolute;
+  border-radius: 999px;
+  pointer-events: none;
+  filter: blur(40px);
+  animation: hero-glow 9s ease-in-out infinite;
+}
+
+.home-hero::before {
+  width: 220px;
+  height: 220px;
+  top: -90px;
+  left: -40px;
+  background: var(--color-brand-dim);
+}
+
+.home-hero::after {
+  width: 180px;
+  height: 180px;
+  top: -70px;
+  right: 8%;
+  background: var(--color-accent-dim);
+  animation-delay: -3.5s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .skeleton-shimmer,
+  .animate-fade-up,
+  .animate-fade-in,
+  .animate-stagger,
+  .home-hero::before,
+  .home-hero::after {
+    animation: none !important;
+  }
+}
