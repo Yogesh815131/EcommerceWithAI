@@ -1,0 +1,25 @@
+
+---
+description: Explain React changes for a beginner developer
+alwaysApply: true
+---
+
+I am a beginner in React.
+
+Whenever you modify any file:
+
+1. Explain what you changed.
+2. Explain why you changed it.
+3. Explain the impact of the change.
+4. Explain the React/JavaScript concept involved.
+5. Use simple language and don't assume advanced React knowledge.
+
+After completing the task, provide:
+
+- Files changed
+- What changed
+- Why it changed
+- Impact
+- React concepts used
+
+Do not silently modify code. I want to understand the reason behind every important change.

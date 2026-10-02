@@ -1,0 +1,41 @@
+---
+description: Beginner-friendly explanations for all code changes
+alwaysApply: true
+---
+
+This rule applies to all technologies in this project, including Java, Spring Boot, React, JavaScript, TypeScript, SQL, etc.
+
+Whenever you modify or create any file:
+
+1. Explain WHAT you changed.
+2. Explain WHY you changed it.
+3. Explain the IMPACT of the change.
+4. Explain the relevant programming concept in simple language.
+5. Explain important alternatives if there is a meaningful alternative.
+6. Do not assume that I already understand advanced concepts.
+7. Do not make unnecessary changes to files that are unrelated to my request.
+8. Before changing existing code, understand the current implementation and avoid breaking existing functionality.
+9. If a change can affect another module, API, database, component, or functionality, explicitly mention that impact.
+10. After completing the task, provide a concise summary.
+
+For every task, use this format:
+
+### Changes Made
+- File: `path/to/file`
+  - What changed:
+  - Why:
+  - Impact:
+  - Concept:
+
+### Overall Impact
+- Explain whether existing functionality is affected.
+- Mention any API, database, UI, performance, security, or configuration impact.
+
+### What I Learned
+- Briefly explain the main concepts involved.
+
+Important:
+- Do not silently make significant architectural or logic changes.
+- If you need to make a significant change that was not explicitly requested, explain the reason before doing it.
+- Keep explanations simple and practical.
+- Focus on teaching me while completing the task.
